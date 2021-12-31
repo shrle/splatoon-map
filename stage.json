@@ -1,0 +1,794 @@
+{
+    "nawabari": {
+        "battera": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "huzitubo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "gangaze": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "konbu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "ama": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tyouzame": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tatiuo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hokke": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "manta": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mozuku": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "engawa": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "b_basu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "zatou": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hakohugu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "debon": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "arowana": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "azihurai": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "syotturu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mongara": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "sumesi": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "otoro": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "antyobi": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mutugo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        }
+    },
+    "area": {
+        "battera": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "huzitubo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "gangaze": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "konbu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "ama": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tyouzame": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tatiuo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hokke": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "manta": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mozuku": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "engawa": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "b_basu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "zatou": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hakohugu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "debon": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "arowana": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "azihurai": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "syotturu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mongara": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "sumesi": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "otoro": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "antyobi": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mutugo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        }
+    },
+    "yagura": {
+        "battera": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "huzitubo": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "gangaze": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "konbu": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "ama": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tyouzame": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tatiuo": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hokke": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "manta": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mozuku": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "engawa": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "b_basu": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "zatou": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hakohugu": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "debon": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "arowana": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "azihurai": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "syotturu": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mongara": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "sumesi": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "otoro": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "antyobi": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mutugo": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        }
+    },
+    "hoko": {
+        "battera": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "huzitubo": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "gangaze": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "konbu": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "ama": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tyouzame": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tatiuo": {
+            "objX": 624,
+            "objY": 392,
+            "allyRespawnX": 310,
+            "allyRespawnY": 492,
+            "enemyRespawnX": 935,
+            "enemyRespawnY": 233
+        },
+        "hokke": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "manta": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mozuku": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "engawa": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "b_basu": {
+            "objX": 640,
+            "objY": 365,
+            "allyRespawnX": 295,
+            "allyRespawnY": 625,
+            "enemyRespawnX": 980,
+            "enemyRespawnY": 85
+        },
+        "zatou": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hakohugu": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "debon": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "arowana": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "azihurai": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "syotturu": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mongara": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "sumesi": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "otoro": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "antyobi": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mutugo": {
+            "objX": 999,
+            "objY": 999,
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        }
+    },
+    "asari": {
+        "battera": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "huzitubo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "gangaze": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "konbu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "ama": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tyouzame": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "tatiuo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hokke": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "manta": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mozuku": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "engawa": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "b_basu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "zatou": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "hakohugu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "debon": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "arowana": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "azihurai": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "syotturu": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mongara": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "sumesi": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "otoro": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "antyobi": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        },
+        "mutugo": {
+            "allyRespawnX": 999,
+            "allyRespawnY": 999,
+            "enemyRespawnX": 999,
+            "enemyRespawnY": 999
+        }
+    }
+}

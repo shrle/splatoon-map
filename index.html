@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スプラトゥーン2</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app" style="margin-right:auto; margin-left: auto; width:1300px; padding:0px;">
+        <div>
+
+            <select v-model="pickRule">
+                <option v-for="(value,name) in ruleNames" :value="name">{{value}}</option>
+            </select>
+            <select v-model="pickStage">
+                <option v-for="(value,name) in stageNames" :value="name">{{value}}</option>
+            </select>
+            <span><button @click="loadStage(pickRule,pickStage)">ステージ変更</button></span>
+        </div>
+        <button @click="inkClear">ink clear</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+    <script src="./keyboard.js" type="module"></script>
+    <script src="./splatoon-map.js" type="module"></script>
+</body>
+
+</html>
