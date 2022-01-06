@@ -11,9 +11,10 @@ class KeybordState {
 
     constructor() {
         this.onKeys = new Map();
-
+        this.keyState = {};
         document.addEventListener('keydown', (e) => {
 
+            this.keyState[e.key] = true;
             this.onKeys.forEach((value, onKey) => {
                 if (onKey.key === e.key) {
 
@@ -21,6 +22,10 @@ class KeybordState {
                     onKey.func();
                 }
             });
+        });
+        document.addEventListener('keyup', (e) => {
+
+            this.keyState[e.key] = false;
         });
     }
 
@@ -33,6 +38,10 @@ class KeybordState {
 
     deleteKeyEvent(keydata) {
         this.onKeys.delete(keyData);
+    }
+
+    isDown(key) {
+        return this.keyState[key] === true;
     }
 }
 

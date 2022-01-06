@@ -4,20 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スプラトゥーン2</title>
+    <title>スプラトゥーン2 - 図上演習</title>
     <style>
         [v-cloak] {
             display: none;
         }
     </style>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@puyoquerensim">
+    <meta property="og:title" content="スプラトゥーン2 - 図上演習">
+    <meta property="og:description" content="マップ上のキャラ配置、陣形をじっくり考察するため作ったアプリです">
+    <meta property="og:image" content="http://shrle/splatoon2-mapsim/img/splatoon2-mapsim-tc.png">
 </head>
 
 <body>
 
-    <div id="app" style="margin-right:auto; margin-left: auto; width:1300px; padding:0px;">
-        <div>
+    <div id="app" class="container" style="margin-right:auto; margin-left: auto; width:1300px; padding:0px;" v-cloak>
+        <h1>スプラトゥーン2 - 図上演習</h1>
+        <p>
+            スプラトゥーンの試合を振り返り、陣形や配置の考察がしたい時にこういうのが欲しくなったので作りました
+        </p>
+        <div class="m-3">
 
-            <select v-model="pickRule">
+            <button type="button" class="" data-bs-toggle="modal" data-bs-target="#helpModal">
+                help
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade " id="helpModal" tabindex="-1" aria-labelledby="helpModal" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">キャラクター、オブジェクトの移動</div>
+                                <div class="col-sm-3">ドラッグ</div>
+                            </div>
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">キャラクターとオブジェクトの移動</div>
+                                <div class="col-sm-3">Ctrl+キャラクタードラッグ</div>
+                            </div>
+
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">キャラクターの回転</div>
+                                <div class="col-sm-3">掴みながらホイール</div>
+                            </div>
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">インクの大きさ</div>
+                                <div class="col-sm-3">ホイール</div>
+                            </div>
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">ポインタに味方を配置</div>
+                                <div class="col-sm-3">1,2,3,4</div>
+                            </div>
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">ポインタに敵を配置</div>
+                                <div class="col-sm-3">6,7,8,9 or q,w,e,r</div>
+                            </div>
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">ポインタにオブジェクトを配置</div>
+                                <div class="col-sm-3">5</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <select v-model=" pickRule">
                 <option v-for="(value,name) in ruleNames" :value="name">{{value}}</option>
             </select>
             <select v-model="pickStage">
@@ -25,9 +85,30 @@
             </select>
             <span><button @click="loadStage(pickRule,pickStage)">ステージ変更</button></span>
         </div>
-        <button @click="inkClear">ink clear</button>
+        <div class="m-3">
+
+            <button @click="inkClear">ink clear</button>
+        </div>
+        <div id="canvas"></div>
+        <p>
+        <div> 未対応マップ</div>
+
+        <div>ガチエリア - アジフライスタジアム</div>
+        <div>
+            ガチヤグラ - バッテラストリート<br>
+            ガチヤグラ - アジフライスタジアム<br>
+            ガチヤグラ - ホテルニューオートロ<br>
+        </div>
+        <div>ガチアサリ - タチウオパーキング</div>
+
+        </p>
     </div>
 
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>

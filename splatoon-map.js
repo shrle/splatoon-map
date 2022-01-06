@@ -29,6 +29,8 @@ const stageName = {
 let vm = new Vue({
     el: '#app',
     mounted: function () {
+
+
         axios.get('stage.json')
             .then((res) => {
                 this.stageData = res.data;
@@ -37,7 +39,7 @@ let vm = new Vue({
             width: this.canvasWidth, height: this.canvasHeigth, backgroundColor: 0x000000, resolution: window.devicePixelRatio || 1,
             autoResize: true
         });
-        document.querySelector('#app').appendChild(this.app.view);
+        document.querySelector('#canvas').appendChild(this.app.view);
         this.app.view.addEventListener('wheel', this.wheelEvent);
         this.container = new PIXI.Container();
         this.app.stage.addChild(this.container);
@@ -58,6 +60,7 @@ let vm = new Vue({
 
     },
     data: {
+        onHelp: false,
         stageData: {},
         ruleNames: {
             "area": "ガチエリア",
@@ -181,6 +184,8 @@ let vm = new Vue({
 
             this.objbg = objbg;
             this.obj = obj;
+
+            this.animateFuncs.set(this.bringObj.bind(this));
         },
         charSetting: function (ruleName, stageName) {
 
@@ -415,6 +420,8 @@ let vm = new Vue({
             else {
                 this.penWeight += -e.deltaY * 0.01;
             }
+
+            e.preventDefault();
         },
         keyEvent: function () {
 
@@ -422,6 +429,8 @@ let vm = new Vue({
             KeybordState.addKeyEvent("2", () => { this.moveCharacterFromMousePoint(1); });
             KeybordState.addKeyEvent("3", () => { this.moveCharacterFromMousePoint(2); });
             KeybordState.addKeyEvent("4", () => { this.moveCharacterFromMousePoint(3); });
+
+            KeybordState.addKeyEvent("5", () => { this.moveObjFromMousePoint(); });
 
             KeybordState.addKeyEvent("6", () => { this.moveCharacterFromMousePoint(4); });
             KeybordState.addKeyEvent("7", () => { this.moveCharacterFromMousePoint(5); });
@@ -433,10 +442,6 @@ let vm = new Vue({
             KeybordState.addKeyEvent("e", () => { this.moveCharacterFromMousePoint(6); });
             KeybordState.addKeyEvent("r", () => { this.moveCharacterFromMousePoint(7); });
 
-
-            KeybordState.addKeyEvent("z", () => { console.log('this.inkPointer.tint', this.inkPointer.tint); });
-        },
-        func: function () {
         },
         animate: function (delta) {
 
@@ -498,7 +503,17 @@ let vm = new Vue({
             const mouseposition = this.app.renderer.plugins.interaction.mouse.global;
             char.x = mouseposition.x;
             char.y = mouseposition.y;
-
+        },
+        moveObjFromMousePoint: function () {
+            const mouseposition = this.app.renderer.plugins.interaction.mouse.global;
+            this.obj.x = mouseposition.x;
+            this.obj.y = mouseposition.y;
+        },
+        bringObj: function () {
+            if (this.touchCharacter && KeybordState.isDown("Control")) {
+                this.obj.x = this.touchCharacter.x;
+                this.obj.y = this.touchCharacter.y + 15;
+            }
         },
     }
 });
