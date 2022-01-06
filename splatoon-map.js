@@ -63,6 +63,7 @@ let vm = new Vue({
         onHelp: false,
         stageData: {},
         ruleNames: {
+            "nawabari": "ナワバリ",
             "area": "ガチエリア",
             "yagura": "ガチヤグラ",
             "hoko": "ガチホコ",
