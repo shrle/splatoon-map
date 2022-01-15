@@ -1,33 +1,84 @@
 import KeybordState from "./keyboard.js";
 
-const stageName = {
-    "battera": "バッテラストリート",
-    "huzitubo": "フジツボスポーツクラブ",
-    "gangaze": "ガンガゼ野外音楽堂",
-    "konbu": "コンブトラック",
-    "ama": "海女美術大学",
-    "tyouzame": "チョウザメ造船",
-    "tatiuo": "タチウオパーキング",
-    "hokke": "ホッケふ頭",
-    "manta": "マンタマリア号",
-    "mozuku": "モズク農園",
-    "engawa": "エンガワ河川敷",
-    "b_basu": "Bバスパーク",
-    "zatou": "ザトウマーケット",
-    "hakohugu": "ハコフグ倉庫",
-    "debon": "デボン海洋博物館",
-    "arowana": "アロワナモール",
-    "azihurai": "アジフライスタジアム",
-    "syotturu": "ショッツル鉱山",
-    "mongara": "モンガラキャンプ場",
-    "sumesi": "スメーシーワールド",
-    "otoro": "ホテルニューオートロ",
-    "antyobi": "アンチョビットゲームズ",
-    "mutugo": "ムツゴ楼",
-};
 
 let vm = new Vue({
     el: '#app',
+    data: {
+        stageData: {},
+        rules: [
+            { id: "nawabari", name: "ナワバリ" },
+            { id: "area", name: "ガチエリア" },
+            { id: "yagura", name: "ガチヤグラ" },
+            { id: "hoko", name: "ガチホコ" },
+            { id: "asari", name: "ガチアサリ" },
+        ],
+        stages:
+            [
+                { id: 'b_basu', name: 'Bバスパーク' },
+                { id: 'azihurai', name: 'アジフライスタジアム' },
+                { id: 'arowana', name: 'アロワナモール' },
+                { id: 'antyobi', name: 'アンチョビットゲームズ' },
+                { id: 'engawa', name: 'エンガワ河川敷' },
+                { id: 'gangaze', name: 'ガンガゼ野外音楽堂' },
+                { id: 'konbu', name: 'コンブトラック' },
+                { id: 'zatou', name: 'ザトウマーケット' },
+                { id: 'syotturu', name: 'ショッツル鉱山' },
+                { id: 'sumesi', name: 'スメーシーワールド' },
+                { id: 'tatiuo', name: 'タチウオパーキング' },
+                { id: 'tyouzame', name: 'チョウザメ造船' },
+                { id: 'debon', name: 'デボン海洋博物館' },
+                { id: 'hakohugu', name: 'ハコフグ倉庫' },
+                { id: 'battera', name: 'バッテラストリート' },
+                { id: 'huzitubo', name: 'フジツボスポーツクラブ' },
+                { id: 'hokke', name: 'ホッケふ頭' },
+                { id: 'otoro', name: 'ホテルニューオートロ' },
+                { id: 'manta', name: 'マンタマリア号' },
+                { id: 'mutugo', name: 'ムツゴ楼' },
+                { id: 'mozuku', name: 'モズク農園' },
+                { id: 'mongara', name: 'モンガラキャンプ場' },
+                { id: 'ama', name: '海女美術大学' }
+            ]
+        ,
+        pickRule: "hoko",
+        pickStage: "tatiuo",
+        stage: {},// image
+        stageSprite: {}, // PIXI.Sprite
+        canvasWidth: 1280,
+        canvasHeigth: 720,
+        app: {}, // PIXI.Application
+        container: {},// PIXI.Container
+        animateFuncs: new Map(),
+
+        obj: {}, // PIXI.Sprite
+        objbg: {}, // PIXI.Sprite
+        charcters: [], // PIXI.Container[]
+        touchCharacter: null, // charcters[index]
+
+        pickInkColor: {}, // allyInkMaskTexture or enemyInkMaskTexture
+        eraseInkColor: {}, // // allyInkMaskTexture or enemyInkMaskTexture
+        penWeight: 10,
+
+        allyInkMaskTexture: {},
+        enemyInkMaskTexture: {},
+
+        inkContainer: {}, // PIXI.Container
+        isPaint: false,
+        allyColor: 0xebd244,
+        enemyColor: 0x9b31ff,
+
+        paintMode: "ink", // "ink" or "pen"
+        penColor: "#D1FFDF",
+        lastPoint: {},
+        penClear: () => { },
+    },
+    watch: {
+        pickRule: function () {
+            this.loadStage(this.pickRule, this.pickStage);
+        },
+        pickStage: function () {
+            this.loadStage(this.pickRule, this.pickStage);
+        },
+    },
     mounted: function () {
 
 
@@ -51,6 +102,7 @@ let vm = new Vue({
         this.container.addChild(this.stageSprite);
 
         this.inkPointerSetting();
+        this.penPointerSetting();
         this.buttonSetting();
         this.charSetting();
         this.ruleObjSetting();
@@ -59,80 +111,7 @@ let vm = new Vue({
         this.keyEvent();
 
     },
-    data: {
-        onHelp: false,
-        stageData: {},
-        ruleNames: {
-            "nawabari": "ナワバリ",
-            "area": "ガチエリア",
-            "yagura": "ガチヤグラ",
-            "hoko": "ガチホコ",
-            "asari": "ガチアサリ",
-        },
-        stageNames: {
-            "battera": "バッテラストリート",
-            "huzitubo": "フジツボスポーツクラブ",
-            "gangaze": "ガンガゼ野外音楽堂",
-            "konbu": "コンブトラック",
-            "ama": "海女美術大学",
-            "tyouzame": "チョウザメ造船",
-            "tatiuo": "タチウオパーキング",
-            "hokke": "ホッケふ頭",
-            "manta": "マンタマリア号",
-            "mozuku": "モズク農園",
-            "engawa": "エンガワ河川敷",
-            "b_basu": "Bバスパーク",
-            "zatou": "ザトウマーケット",
-            "hakohugu": "ハコフグ倉庫",
-            "debon": "デボン海洋博物館",
-            "arowana": "アロワナモール",
-            "azihurai": "アジフライスタジアム",
-            "syotturu": "ショッツル鉱山",
-            "mongara": "モンガラキャンプ場",
-            "sumesi": "スメーシーワールド",
-            "otoro": "ホテルニューオートロ",
-            "antyobi": "アンチョビットゲームズ",
-            "mutugo": "ムツゴ楼",
-        },
-        pickRule: "hoko",
-        pickStage: "tatiuo",
-        stage: {},// image
-        stageSprite: {},
-        canvasWidth: 1280,
-        canvasHeigth: 720,
-        app: {},// PIXI.Application
-        container: {},// PIXI.Container
 
-        obj: {},
-        objbg: {},
-        charcters: [],
-
-        penColor: {},
-        eraseColor: {},
-        penWeight: 10,
-
-        allyInkMaskTexture: {},
-        enemyInkMaskTexture: {},
-
-        inkContainer: {},// PIXI.Container
-        inkPointer: {},
-        isPaint: false,
-
-        lastPoint: {},
-        nowPoint: {},
-
-        touchCharacter: null,
-        animateFuncs: new Map(),
-
-        myRespawn: new PIXI.Point(310, 492),
-        enemyRespawn: new PIXI.Point(935, 233),
-
-        allyColor: 0xebd244,
-        enemyColor: 0x9b31ff,
-
-        wallMaskLoaded: false,
-
-    },
     methods: {
 
         loadStage: function (ruleName, stageName) {
@@ -189,94 +168,62 @@ let vm = new Vue({
             this.animateFuncs.set(this.bringObj.bind(this));
         },
         charSetting: function (ruleName, stageName) {
-
-            const ownTextuer = PIXI.Texture.from('img/own-frame.png');
-            const allyTextuer = PIXI.Texture.from('img/player-frame.png');
-            const allyMaskTextuer = PIXI.Texture.from('img/player-mask-a.png');
-
             for (let i = 0; i < 4; i++) {
-                const pContainer = new PIXI.Container();
-                pContainer.x = 0;
-                pContainer.y = 0;
-
-                const ally = new PIXI.Sprite((i === 0) ? ownTextuer : allyTextuer);
-                ally.anchor.set(0.5);
-                ally.x = 0;
-                ally.y = 0;
-                ally.scale.x = 0.1;
-                ally.scale.y = 0.1;
-
-                const allyMask = new PIXI.Sprite(allyMaskTextuer);
-                allyMask.anchor.set(0.5);
-                allyMask.x = 0;
-                allyMask.y = 0;
-                allyMask.scale.x = 0.1;
-                allyMask.scale.y = 0.1;
-                allyMask.tint = this.allyColor;
-
-                pContainer.addChild(allyMask, ally);
-                pContainer.interactive = true;
-                pContainer.buttonMode = true;
-                pContainer.on('pointerdown', onDragStart)
-                    .on('pointerdown', () => {
-                        this.touchCharacter = pContainer;
-                    })
-                    .on('pointerup', onDragEnd)
-                    .on('pointerup', () => {
-                        this.touchCharacter = null;
-                    })
-                    .on('pointerupoutside', onDragEnd)
-                    .on('pointerupoutside', () => {
-                        this.touchCharacter = null;
-                    })
-                    .on('pointermove', onDragMove);
-
+                const pContainer = this.createCharacter(this.allyColor, (i === 0));
                 this.app.stage.addChild(pContainer);
                 this.charcters.push(pContainer);
             }
 
             for (let i = 0; i < 4; i++) {
-                const eContainer = new PIXI.Container();
-                eContainer.x = 0;
-                eContainer.y = 0;
-
-                const enemy = new PIXI.Sprite(allyTextuer);
-                enemy.anchor.set(0.5);
-                enemy.x = 0;
-                enemy.y = 0;
-                enemy.scale.x = 0.1;
-                enemy.scale.y = 0.1;
-
-                const enemyMask = new PIXI.Sprite(allyMaskTextuer);
-                enemyMask.anchor.set(0.5);
-                enemyMask.x = 0;
-                enemyMask.y = 0;
-                enemyMask.scale.x = 0.1;
-                enemyMask.scale.y = 0.1;
-                enemyMask.tint = this.enemyColor;
-
-                eContainer.addChild(enemyMask, enemy);
-                eContainer.interactive = true;
-                eContainer.buttonMode = true;
-                eContainer.on('pointerdown', onDragStart)
-                    .on('pointerdown', () => {
-                        this.touchCharacter = eContainer;
-                    })
-                    .on('pointerup', onDragEnd)
-                    .on('pointerup', () => {
-                        this.touchCharacter = null;
-                    })
-                    .on('pointerupoutside', onDragEnd)
-                    .on('pointerupoutside', () => {
-                        this.touchCharacter = null;
-                    })
-                    .on('pointermove', onDragMove);
-
+                const eContainer = this.createCharacter(this.enemyColor);
                 this.app.stage.addChild(eContainer);
                 this.charcters.push(eContainer);
             }
         },
 
+        createCharacter: function (characterColor, isOwn) {
+            const ownTextuer = PIXI.Texture.from('img/own-frame.png');
+            const playerTexture = PIXI.Texture.from('img/player-frame.png');
+            const playerMaskTextuer = PIXI.Texture.from('img/player-mask-a.png');
+
+            const container = new PIXI.Container();
+            container.x = 0;
+            container.y = 0;
+
+            const character = new PIXI.Sprite(isOwn ? ownTextuer : playerTexture);
+            character.anchor.set(0.5);
+            character.x = 0;
+            character.y = 0;
+            character.scale.x = 0.1;
+            character.scale.y = 0.1;
+
+            const characterMask = new PIXI.Sprite(playerMaskTextuer);
+            characterMask.anchor.set(0.5);
+            characterMask.x = 0;
+            characterMask.y = 0;
+            characterMask.scale.x = 0.1;
+            characterMask.scale.y = 0.1;
+            characterMask.tint = characterColor;
+
+            container.addChild(characterMask, character);
+            container.interactive = true;
+            container.buttonMode = true;
+            container.on('pointerdown', onDragStart)
+                .on('pointerdown', () => {
+                    this.touchCharacter = container;
+                })
+                .on('pointerup', onDragEnd)
+                .on('pointerup', () => {
+                    this.touchCharacter = null;
+                })
+                .on('pointerupoutside', onDragEnd)
+                .on('pointerupoutside', () => {
+                    this.touchCharacter = null;
+                })
+                .on('pointermove', onDragMove);
+
+            return container;
+        },
         initObjPoint: function (ruleName, stageName) {
             const sd = this.stageData[ruleName][stageName];
             this.objbg.x = sd.objX;
@@ -324,8 +271,8 @@ let vm = new Vue({
             enemyInkPaint.tint = this.enemyColor;
             enemyInkPaint.mask = enemyInkMaskSprite;
 
-            this.penColor = this.allyInkMaskTexture;
-            this.eraseColor = this.enemyInkMaskTexture
+            this.pickInkColor = this.allyInkMaskTexture;
+            this.eraseInkColor = this.enemyInkMaskTexture
             this.inkContainer.addChild(allyInkPaint, enemyInkPaint);
 
             this.app.stage.addChild(this.inkContainer);
@@ -335,8 +282,9 @@ let vm = new Vue({
             const grp = new PIXI.Graphics();
             this.animateFuncs.set((mouseX, mouseY) => {
                 grp.clear();
+                if (this.touchCharacter || this.paintMode !== "ink") return;
                 grp.lineStyle(0);
-                const color = this.penColor === this.allyInkMaskTexture ? this.allyColor : this.enemyColor;
+                const color = this.pickInkColor === this.allyInkMaskTexture ? this.allyColor : this.enemyColor;
                 grp.beginFill(color);
                 grp.drawCircle(mouseX, mouseY, this.penWeight);
                 grp.endFill();
@@ -349,8 +297,6 @@ let vm = new Vue({
 
                     this.lastPoint.x = mouseposition.x;
                     this.lastPoint.y = mouseposition.y;
-                    this.nowPoint.x = mouseposition.x;
-                    this.nowPoint.y = mouseposition.y;
                 })
                 .on('pointerup', () => {
                     this.isPaint = false;
@@ -358,27 +304,68 @@ let vm = new Vue({
                 .on('pointerupoutside', () => {
                     this.isPaint = false;
                 })
-                .on('pointermove', () => {
-                    if (this.isPaint) {
-                        const mouseposition = this.app.renderer.plugins.interaction.mouse.global;
 
-                        this.nowPoint.x = mouseposition.x;
-                        this.nowPoint.y = mouseposition.y;
-                    }
-                })
-                .on('pointerup', () => {
-                });
             inkPointer.interactive = true;
             inkPointer.buttonMode = true;
             inkPointer.addChild(grp);
             this.app.stage.addChild(inkPointer);
+            this.animateFuncs.set(this.inkPaint.bind(this));
         },
+        penPointerSetting: function () {
+            const penPointer = new PIXI.Container();
+            const grp = new PIXI.Graphics();
+            this.animateFuncs.set((mouseX, mouseY) => {
+                grp.clear();
+                if (this.touchCharacter || this.paintMode !== "pen") return;
+                grp.lineStyle(0);
+                const color = this.colorCodeToNumber(this.penColor);
+                grp.beginFill(color);
+                grp.drawCircle(mouseX, mouseY, this.penWeight);
+                grp.endFill();
+            });
+
+            let isPaint = false;
+            penPointer
+                .on('pointerdown', () => {
+                    isPaint = true;
+                    const mouseposition = this.app.renderer.plugins.interaction.mouse.global;
+
+                    this.lastPoint.x = mouseposition.x;
+                    this.lastPoint.y = mouseposition.y;
+                })
+                .on('pointerup', () => {
+                    isPaint = false;
+                })
+                .on('pointerupoutside', () => {
+                    isPaint = false;
+                })
+
+            penPointer.interactive = true;
+            penPointer.buttonMode = true;
+            penPointer.addChild(grp);
+            const penPaint = new PIXI.Container();
+            this.app.stage.addChild(penPaint, penPointer);
+            this.animateFuncs.set(() => {
+                if (!isPaint) return;
+                const color = this.colorCodeToNumber(this.penColor);
+                const draw = this.drawLine(color);
+                penPaint.addChild(draw);
+            });
+            this.penClear = () => {
+                penPaint.removeChildren();
+            };
+        },
+
+        colorCodeToNumber: function (colorCode) {
+            return parseInt(colorCode.substr(1), 16);
+        },
+
         buttonSetting: function () {
 
             const inkT = PIXI.Texture.from('img/circle.png');
             const buttonsContainer = new PIXI.Container();
             {
-                let allyInkBtn = new PIXI.Sprite(inkT);
+                const allyInkBtn = new PIXI.Sprite(inkT);
                 allyInkBtn.interactive = true;
                 allyInkBtn.buttonMode = true;
                 allyInkBtn.tint = this.allyColor;
@@ -387,15 +374,11 @@ let vm = new Vue({
                 allyInkBtn.scale.x = 0.4;
                 allyInkBtn.scale.y = 0.4;
                 allyInkBtn.anchor.set(0.5);
-                allyInkBtn.on('pointerdown', () => {
-                    //this.inkPointer.tint = allyInkBtn.tint;
-                    this.penColor = this.allyInkMaskTexture;
-                    this.eraseColor = this.enemyInkMaskTexture;
-                });
+                allyInkBtn.on('pointerdown', this.pickAllyInk.bind(this));
                 buttonsContainer.addChild(allyInkBtn);
             }
             {
-                let enemyInkBtn = new PIXI.Sprite(inkT);
+                const enemyInkBtn = new PIXI.Sprite(inkT);
                 enemyInkBtn.interactive = true;
                 enemyInkBtn.buttonMode = true;
                 enemyInkBtn.tint = this.enemyColor;
@@ -404,14 +387,36 @@ let vm = new Vue({
                 enemyInkBtn.scale.x = 0.4;
                 enemyInkBtn.scale.y = 0.4;
                 enemyInkBtn.anchor.set(0.5);
-                enemyInkBtn.on('pointerdown', () => {
-                    //this.inkPointer.tint = enemyInkBtn.tint;
-                    this.penColor = this.enemyInkMaskTexture;
-                    this.eraseColor = this.allyInkMaskTexture;
-                });
+                enemyInkBtn.on('pointerdown', this.pickEnemyInk.bind(this));
                 buttonsContainer.addChild(enemyInkBtn);
             }
+            {
+                const penIconTexture = PIXI.Texture.from('img/pen.png');
+                const penIconSprite = new PIXI.Sprite(penIconTexture);
+                penIconSprite.interactive = true;
+                penIconSprite.buttonMode = true;
+                penIconSprite.x = 300;
+                penIconSprite.y = 695;
+                penIconSprite.scale.x = 0.2;
+                penIconSprite.scale.y = 0.2;
+                penIconSprite.anchor.set(0.5);
+                penIconSprite.on('pointerdown', this.pickPen.bind(this));
+                buttonsContainer.addChild(penIconSprite);
+            }
             this.app.stage.addChild(buttonsContainer);
+        },
+        pickPen: function () {
+            this.paintMode = "pen";
+        },
+        pickAllyInk: function () {
+            this.paintMode = "ink";
+            this.pickInkColor = this.allyInkMaskTexture;
+            this.eraseInkColor = this.enemyInkMaskTexture;
+        },
+        pickEnemyInk: function () {
+            this.paintMode = "ink";
+            this.pickInkColor = this.enemyInkMaskTexture;
+            this.eraseInkColor = this.allyInkMaskTexture;
         },
         wheelEvent: function (e) {
 
@@ -443,6 +448,10 @@ let vm = new Vue({
             KeybordState.addKeyEvent("e", () => { this.moveCharacterFromMousePoint(6); });
             KeybordState.addKeyEvent("r", () => { this.moveCharacterFromMousePoint(7); });
 
+            KeybordState.addKeyEvent("a", this.pickAllyInk.bind(this));
+            KeybordState.addKeyEvent("b", this.pickEnemyInk.bind(this));
+            KeybordState.addKeyEvent("c", this.pickPen.bind(this));
+
         },
         animate: function (delta) {
 
@@ -451,29 +460,22 @@ let vm = new Vue({
             for (const func of this.animateFuncs.keys()) {
                 func(mouseposition.x, mouseposition.y);
             }
+            this.lastPoint.x = mouseposition.x;
+            this.lastPoint.y = mouseposition.y;
+        },
 
-            this.inkPointer.x = mouseposition.x;
-            this.inkPointer.y = mouseposition.y;
 
+        inkPaint: function (mouseX, mouseY) {
             if (this.isPaint) {
 
-                this.paint();
-                this.erase();
+                const drawGrp = this.drawLine(0xffffff);
+                this.app.renderer.render(drawGrp, this.pickInkColor, false, null, false);
+                const eraseGrp = this.drawLine(0x000000);
+                this.app.renderer.render(eraseGrp, this.eraseInkColor, false, null, false);
 
-                this.lastPoint.x = mouseposition.x;
-                this.lastPoint.y = mouseposition.y;
             }
-
         },
 
-        paint: function () {
-            const grp = this.drawLine(0xffffff);
-            this.app.renderer.render(grp, this.penColor, false, null, false);
-        },
-        erase: function () {
-            const grp = this.drawLine(0x000000);
-            this.app.renderer.render(grp, this.eraseColor, false, null, false);
-        },
         drawLine: function (color) {
             const mouseposition = this.app.renderer.plugins.interaction.mouse.global;
 
@@ -496,8 +498,8 @@ let vm = new Vue({
             grp.drawRect(0, 0, this.canvasWidth, this.canvasHeigth);
             grp.endFill();
 
-            this.app.renderer.render(grp, this.penColor, false, null, false);
-            this.app.renderer.render(grp, this.eraseColor, false, null, false);
+            this.app.renderer.render(grp, this.pickInkColor, false, null, false);
+            this.app.renderer.render(grp, this.eraseInkColor, false, null, false);
         },
         moveCharacterFromMousePoint: function (charcterIndex) {
             const char = this.charcters[charcterIndex];

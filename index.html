@@ -25,6 +25,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <meta name="description" content="マップ上のキャラ配置、陣形をじっくり考察するためのアプリ">
+    <meta name="keywords" content="スプラトゥーン2,マップ一覧,ステージ一覧,図上演習,兵棋演習">
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@puyoquerensim">
     <meta property="og:title" content="スプラトゥーン2 - 図上演習">
@@ -45,6 +48,11 @@
         <p>
             スプラトゥーンの試合を振り返り、陣形や配置の考察がしたい時にこういうのが欲しくなったので作りました
         </p>
+        <div>
+            <a href="https://twitter.com/puyoquerensim?ref_src=twsrc%5Etfw" class="twitter-follow-button"
+                data-show-count="false">Follow @puyoquerensim</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
         <div class="m-3">
 
             <button type="button" class="" data-bs-toggle="modal" data-bs-target="#helpModal">
@@ -89,36 +97,41 @@
                                 <div class="col-sm-3">5</div>
                             </div>
 
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">味方インクに切り替え</div>
+                                <div class="col-sm-3">a</div>
+                            </div>
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">敵インクに切り替え</div>
+                                <div class="col-sm-3">b</div>
+                            </div>
+                            <div class="row border-bottom p-2">
+                                <div class="col-sm-4">ペンに切り替え</div>
+                                <div class="col-sm-3">c</div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
 
             <select v-model=" pickRule">
-                <option v-for="(value,name) in ruleNames" :value="name">{{value}}</option>
+                <option v-for="rule in rules" :value="rule.id">{{rule.name}}</option>
             </select>
             <select v-model="pickStage">
-                <option v-for="(value,name) in stageNames" :value="name">{{value}}</option>
+                <option v-for="stage in stages" :value="stage.id">{{stage.name}}</option>
             </select>
-            <span><button @click="loadStage(pickRule,pickStage)">ステージ変更</button></span>
         </div>
         <div class="m-3">
 
             <button @click="inkClear">ink clear</button>
+            <button @click="penClear">pen clear</button>
         </div>
         <div id="canvas"></div>
-        <p>
-        <div> 未対応マップ</div>
+        <label for="pencolor">pen color</label>
+        <input type="color" v-model="penColor" id="pencolor">
 
-        <div>ガチエリア - アジフライスタジアム</div>
-        <div>
-            ガチヤグラ - バッテラストリート<br>
-            ガチヤグラ - アジフライスタジアム<br>
-            ガチヤグラ - ホテルニューオートロ<br>
-        </div>
-        <div>ガチアサリ - タチウオパーキング</div>
-
-        </p>
+        <div style="height:300px;"></div>
     </div>
 
 
@@ -131,7 +144,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
     <script src="./keyboard.js" type="module"></script>
-    <script src="./splatoon-map.js" type="module"></script>
+    <script src="./splatoon-map.js?202201151220" type="module"></script>
 </body>
 
 </html>

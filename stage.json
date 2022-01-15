@@ -237,10 +237,10 @@
             "enemyRespawnY": 91
         },
         "azihurai": {
-            "allyRespawnX": 999,
-            "allyRespawnY": 999,
-            "enemyRespawnX": 999,
-            "enemyRespawnY": 999
+            "allyRespawnX": 359,
+            "allyRespawnY": 652,
+            "enemyRespawnX": 901,
+            "enemyRespawnY": 135
         },
         "syotturu": {
             "allyRespawnX": 672,
@@ -281,12 +281,12 @@
     },
     "yagura": {
         "battera": {
-            "objX": 999,
-            "objY": 999,
-            "allyRespawnX": 999,
-            "allyRespawnY": 999,
-            "enemyRespawnX": 999,
-            "enemyRespawnY": 999
+            "objX": 638,
+            "objY": 385,
+            "allyRespawnX": 839,
+            "allyRespawnY": 643,
+            "enemyRespawnX": 439,
+            "enemyRespawnY": 101
         },
         "huzitubo": {
             "objX": 639,
@@ -409,12 +409,12 @@
             "enemyRespawnY": 88
         },
         "azihurai": {
-            "objX": 999,
-            "objY": 999,
-            "allyRespawnX": 999,
-            "allyRespawnY": 999,
-            "enemyRespawnX": 999,
-            "enemyRespawnY": 999
+            "objX": 630,
+            "objY": 409,
+            "allyRespawnX": 415,
+            "allyRespawnY": 627,
+            "enemyRespawnX": 846,
+            "enemyRespawnY": 169
         },
         "syotturu": {
             "objX": 645,
@@ -441,12 +441,12 @@
             "enemyRespawnY": 121
         },
         "otoro": {
-            "objX": 999,
-            "objY": 999,
-            "allyRespawnX": 999,
-            "allyRespawnY": 999,
-            "enemyRespawnX": 999,
-            "enemyRespawnY": 999
+            "objX": 637,
+            "objY": 353,
+            "allyRespawnX": 443,
+            "allyRespawnY": 562,
+            "enemyRespawnX": 833,
+            "enemyRespawnY": 119
         },
         "antyobi": {
             "objX": 639,
@@ -689,10 +689,10 @@
             "enemyRespawnY": 106
         },
         "tatiuo": {
-            "allyRespawnX": 999,
-            "allyRespawnY": 999,
-            "enemyRespawnX": 999,
-            "enemyRespawnY": 999
+            "allyRespawnX": 310,
+            "allyRespawnY": 492,
+            "enemyRespawnX": 935,
+            "enemyRespawnY": 234
         },
         "hokke": {
             "allyRespawnX": 336,
